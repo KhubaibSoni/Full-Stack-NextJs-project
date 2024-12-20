@@ -7,104 +7,105 @@ import { redirect } from "next/navigation";
 import Searchform from "@/component/Searchform";
 import Card from "@/component/card";
 
-const startups=[
-    {
+const startups = [
+  {
       "_id": "1a2b3c4d",
-      "title": "Exploring the Mountains",
+      "title": "Peakify",
       "category": "Travel",
-      "createdAt": "2024-12-18T10:15:00Z",
+      "createdAt": "18 December 2024",
       "view": 1200,
       "author": {
-        "id": "author01",
-        "name": "John Doe"
+          "id": "author01",
+          "name": "John Doe"
       },
       "image": "https://via.placeholder.com/300x200?text=Mountains"
-    },
-    {
+  },
+  {
       "_id": "2b3c4d5e",
-      "title": "Understanding JavaScript Closures",
+      "title": "CodeNest",
       "category": "Programming",
-      "createdAt": "2024-12-17T12:30:00Z",
+      "createdAt": "17 December 2024",
       "view": 875,
       "author": {
-        "id": "author02",
-        "name": "Jane Smith"
+          "id": "author02",
+          "name": "Jane Smith"
       },
       "image": "https://via.placeholder.com/300x200?text=JavaScript"
-    },
-    {
+  },
+  {
       "_id": "3c4d5e6f",
-      "title": "10 Easy Recipes for Beginners",
+      "title": "CookSphere",
       "category": "Cooking",
-      "createdAt": "2024-12-16T09:45:00Z",
+      "createdAt": "16 December 2024",
       "view": 530,
       "author": {
-        "id": "author03",
-        "name": "Emily Johnson"
+          "id": "author03",
+          "name": "Emily Johnson"
       },
       "image": "https://via.placeholder.com/300x200?text=Cooking"
-    },
-    {
+  },
+  {
       "_id": "4d5e6f7g",
-      "title": "Latest Tech Innovations in 2024",
+      "title": "Innovatech",
       "category": "Technology",
-      "createdAt": "2024-12-15T15:20:00Z",
+      "createdAt": "15 December 2024",
       "view": 1500,
       "author": {
-        "id": "author04",
-        "name": "Michael Brown"
+          "id": "author04",
+          "name": "Michael Brown"
       },
       "image": "https://via.placeholder.com/300x200?text=Technology"
-    },
-    {
+  },
+  {
       "_id": "5e6f7g8h",
-      "title": "Top Fitness Tips for Busy People",
+      "title": "FitLife",
       "category": "Health",
-      "createdAt": "2024-12-14T18:10:00Z",
+      "createdAt": "14 December 2024",
       "view": 670,
       "author": {
-        "id": "author05",
-        "name": "Sarah Wilson"
+          "id": "author05",
+          "name": "Sarah Wilson"
       },
       "image": "https://via.placeholder.com/300x200?text=Fitness"
-    },
-    {
+  },
+  {
       "_id": "6f7g8h9i",
-      "title": "The Art of Minimalist Living",
+      "title": "Simplify",
       "category": "Lifestyle",
-      "createdAt": "2024-12-13T08:00:00Z",
+      "createdAt": "13 December 2024",
       "view": 420,
       "author": {
-        "id": "author06",
-        "name": "David Lee"
+          "id": "author06",
+          "name": "David Lee"
       },
       "image": "https://via.placeholder.com/300x200?text=Minimalism"
-    },
-    {
+  },
+  {
       "_id": "7g8h9i0j",
-      "title": "A Guide to Sustainable Gardening",
+      "title": "GreenThumb",
       "category": "Environment",
-      "createdAt": "2024-12-12T11:25:00Z",
+      "createdAt": "12 December 2024",
       "view": 350,
       "author": {
-        "id": "author07",
-        "name": "Laura Davis"
+          "id": "author07",
+          "name": "Laura Davis"
       },
       "image": "https://via.placeholder.com/300x200?text=Gardening"
-    },
-    {
+  },
+  {
       "_id": "8h9i0j1k",
-      "title": "Top Movies to Watch This Year",
+      "title": "ReelFocus",
       "category": "Entertainment",
-      "createdAt": "2024-12-11T16:40:00Z",
+      "createdAt": "11 December 2024",
       "view": 980,
       "author": {
-        "id": "author08",
-        "name": "Chris Martinez"
+          "id": "author08",
+          "name": "Chris Martinez"
       },
       "image": "https://via.placeholder.com/300x200?text=Movies"
-    }
-  ]
+  }
+];
+
 
 const HomePage = async ({searchParams}:{searchParams: Promise<{query?:string}>}) => {
 
@@ -120,7 +121,7 @@ const HomePage = async ({searchParams}:{searchParams: Promise<{query?:string}>})
       <Searchform query={query}/>
        </section>
        
-       <section className="section_container">
+       <section className="section_container ">
          <div >
             <h1 className="text-30-semibold">
                 {query ? `Recommended startups '${query}'` : 'Recommended startups'}
@@ -131,7 +132,7 @@ const HomePage = async ({searchParams}:{searchParams: Promise<{query?:string}>})
             <ul className=" mt-7 card_grid">
               { startups.length > 0 ? (
                 startups.map((story)=>(
-                    <li key={story._id}>
+                    <li key={story._id} >
                   <Card data={story}/>
                   </li>
                 ))
