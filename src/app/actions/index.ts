@@ -1,16 +1,21 @@
 'use server'
 import { signIn, signOut } from "@/auth";
 
-export async function doSocialLogin(formData :any) {
+export async function doSocialLogin(formData : FormData) {
     const action = formData.get('action');
-    await signIn(action, { redirectTo: "/home" });
+    if (typeof action === 'string' ) {
+      await signIn(action, { redirectTo: "/home" });
+    }else {
+      throw new Error("Invalid action type: action must be a string");
+    }
+ 
 }
 
 export async function doLogout() {
   await signOut();
 }
 
-export async function doCredentialLogin(formData:any) {
+export async function doCredentialLogin(formData:FormData) {
   console.log("formData", formData);
 
   try {

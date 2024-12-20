@@ -1,18 +1,19 @@
 "use client";
 
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { doCredentialLogin } from "@/app/actions";
 
 
 const LoginForm = () => {
     const router = useRouter();
     const [error, setError] = useState("");
 
-    async function onSubmit(event : any) {
+    async function onSubmit(event : FormEvent<HTMLFormElement>) {
         event.preventDefault();
         try {
-            const formData = new FormData(event.currentTarget);
+            const formData = new FormData(event.currentTarget as HTMLFormElement);
 
             const response = await doCredentialLogin(formData);
 
@@ -49,7 +50,7 @@ const LoginForm = () => {
                     Ceredential Login
                 </button>
             </form>
-            <SocialLogins />
+       
         </>
     );
 };

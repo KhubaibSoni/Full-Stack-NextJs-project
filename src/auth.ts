@@ -1,11 +1,10 @@
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import GitHubProvider from "next-auth/providers/github";
 import Credentials from "next-auth/providers/credentials"
 
 import { User } from "./model/user-model";
 import bcrypt from "bcryptjs"
 import { dbConnect } from "./lib/mongo";
+import { NextResponse } from "next/server";
 
 
 export const {
@@ -32,8 +31,8 @@ export const {
                     console.log(user);
                     if (user) {
                         const isMatch = await bcrypt.compare(
-                            credentials.password,
-                            user.password
+                            credentials.password as string,
+                            user.password 
                         );
 
                         if (isMatch) {
@@ -45,10 +44,14 @@ export const {
                         throw new Error("User not found");
                     }
                 } catch (error) {
-                    throw new Error(error);
-                }
-            },
-        }),
+                 if (error instanceof Error) {
+                     return NextResponse.json({ error: error.message || "Server error" }, { status: 500 });
+                   } else {
+                     return NextResponse.json({ error: "An unknown error occurred" }, { status: 500 });
+                   }
+            }
+             }
+        })
      
-    ],
+    ]
 });

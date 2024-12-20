@@ -12,6 +12,7 @@ function Card({data}:{
 }}
 ) {
   return (
+ 
     <div className='startup-card'>
       <div className='flex justify-between items-center'>
         <div className='startup-card_date'>
@@ -57,6 +58,7 @@ function Card({data}:{
      </div>
 
     </div>
+  
   )
 }
 

@@ -1,9 +1,5 @@
-import Image from "next/image";
-import LoginForm from "@/component/LoginForm";
-import Logout from "@/component/Logout";
-import { auth } from "@/auth";
+
 import "../globals.css"
-import { redirect } from "next/navigation";
 import Searchform from "@/component/Searchform";
 import Card from "@/component/card";
 
@@ -111,7 +107,7 @@ const HomePage = async ({searchParams}:{searchParams: Promise<{query?:string}>})
 
     
       
-    const session = await auth();
+   
     const query = (await searchParams).query
     return (
         <>

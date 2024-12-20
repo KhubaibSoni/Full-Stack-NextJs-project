@@ -27,11 +27,17 @@ export const POST = async (request: NextRequest) => {
     // Save user to the database
     await createUser(newUser);
 
-    // Respond with success message
+    // Respond with success message 
     return NextResponse.json({ message: "User has been created" }, { status: 201 });
 
-  } catch (err: any) {
-    // Handle errors and respond with a detailed error message
-    return NextResponse.json({ error: err.message || "Server error" }, { status: 500 });
+  } catch (err) {
+    
+    if (err instanceof Error) {
+     
+      return NextResponse.json({ error: err.message || "Server error" }, { status: 500 });
+    } else {
+
+      return NextResponse.json({ error: "An unknown error occurred" }, { status: 500 });
+    }
   }
 };

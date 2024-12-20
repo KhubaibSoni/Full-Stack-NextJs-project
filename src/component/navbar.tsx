@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Logo from "../app/public/YC.png"
-import { auth, signOut } from '@/auth'
+import { auth } from '@/auth'
 import Logout from './Logout'
 import Link from 'next/link'
 

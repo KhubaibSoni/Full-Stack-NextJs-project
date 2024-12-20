@@ -1,16 +1,17 @@
 "use client"
 
 import { useRouter } from "next/navigation";
+import { FormEvent } from "react";
 
 const RegistrationForm = () => {
 
     const router = useRouter();
 
-    async function handleSubmit(event : any) {
+    async function handleSubmit(event : FormEvent) {
       event.preventDefault();
 
       try {
-        const formData = new FormData(event.currentTarget);
+        const formData = new FormData(event.currentTarget as HTMLFormElement);
 
         const name = formData.get('name');
         const email = formData.get('email');
@@ -28,11 +29,15 @@ const RegistrationForm = () => {
           })
         });
 
-        response.status === 201 && router.push('/');
+        if (response.status === 201) {
+          router.push('/');
+      }
         
 
-      } catch (e:any) {
-        console.error(e.message)
+      } catch (error ) {
+        if(error instanceof Error){
+          console.error(error.message)
+        }
       }
     }
 

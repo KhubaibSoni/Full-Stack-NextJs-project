@@ -1,5 +1,4 @@
 import Image from "next/image";
-import LoginForm from "@/component/LoginForm";
 import Logout from "@/component/Logout";
 import { auth } from "@/auth";
 
