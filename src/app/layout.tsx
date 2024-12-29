@@ -5,47 +5,47 @@ import'easymde/dist/easymde.min.css';
 const workSans = localFont({
   src:[
     {
-    path:"./fonts/._WorkSans-Black.ttf",
+    path:"./fonts/WorkSans-Black.ttf",
     weight:"900",
     style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-Black.ttf",
+      path:"./fonts/WorkSans-Black.ttf",
       weight:"900",
       style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-ExtraBold.ttf",
+      path:"./fonts/WorkSans-ExtraBold.ttf",
       weight:"800",
       style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-Bold.ttf",
+      path:"./fonts/WorkSans-Bold.ttf",
       weight:"700",
       style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-SemiBold.ttf",
+      path:"./fonts/WorkSans-SemiBold.ttf",
       weight:"600",
       style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-Medium.ttf",
+      path:"./fonts/WorkSans-Medium.ttf",
       weight:"500",
       style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-Regular.ttf",
+      path:"./fonts/WorkSans-Regular.ttf",
       weight:"400",
       style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-Thin.ttf",
+      path:"./fonts/WorkSans-Thin.ttf",
       weight:"200",
       style:"normal"
     },
     {
-      path:"./fonts/._WorkSans-ExtraLight.ttf",
+      path:"./fonts/WorkSans-ExtraLight.ttf",
       weight:"100",
       style:"normal"
     },
