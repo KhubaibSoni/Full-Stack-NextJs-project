@@ -6,9 +6,10 @@ import React from 'react'
 function ResetButton() {
     const reset=()=>{
         const form = document.querySelector('.search-form') as HTMLFormElement
-        console.log("reset click",form)
-       if(form) form.reset()
-      
+        const params = new URLSearchParams(window.location.search)
+        params.delete('query')
+        if (form) form.reset()
+        window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`)
     }
   return (
   <button type='reset' onClick={reset} title='Clear_Search' >
